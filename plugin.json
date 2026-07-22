@@ -1,5 +1,40 @@
 {
   "name": "codger",
-  "description": "Universal Codger toolkit. Essentialist Architect paradigm with specialized skills.",
-  "version": "3.0.0"
+  "description": "Essentialist Architect: terse communication, minimal code, architectural guardianship. Includes /codger commands.",
+  "version": "3.1.0",
+  "commands": [
+    {
+      "name": "codger",
+      "description": "Set intensity level (lite/full/ultra) or turn off. No argument reports current level.",
+      "argument_hint": "[lite|full|ultra|off]"
+    },
+    {
+      "name": "codger-review",
+      "description": "Review the current diff for over-engineering, hands back a delete-list."
+    },
+    {
+      "name": "codger-audit",
+      "description": "Audit the whole repo for over-engineering, not just the diff."
+    },
+    {
+      "name": "codger-debt",
+      "description": "Harvest deferred shortcuts into a debt ledger."
+    },
+    {
+      "name": "codger-gain",
+      "description": "Show the measured impact scoreboard (less code, less cost, more speed)."
+    },
+    {
+      "name": "codger-help",
+      "description": "Quick reference for the commands above."
+    },
+    {
+      "name": "codger-stats",
+      "description": "Read your session log, count tokens saved, write to statusline."
+    },
+    {
+      "name": "codger-compress",
+      "description": "Rewrite memory files (CLAUDE.md) so every future session starts smaller."
+    }
+  ]
 }

@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // codger-stats — read the active Claude Code session log, print real token
-// usage for this session. Adapted from caveman's hooks/caveman-stats.js (MIT):
-// same session-parsing shape, no lifetime history (no hook wired to persist one yet).
+// usage for this session. Also reads persistent history from the hook
+// (UserPromptSubmit.js) if available.
+// Adapted from caveman's hooks/caveman-stats.js (MIT): same session-parsing
+// shape, plus lifetime history from the Claude Code plugin hook.
 //
 // Run: node stats.js
 

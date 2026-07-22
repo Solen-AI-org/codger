@@ -29,6 +29,16 @@ const TARGETS = {
 
 console.log("Codger Universal Installer\n");
 
+// 0. Claude Code plugin (highest priority — enables auto-inject + hooks + commands)
+const claudePluginDir = path.join(HOME, '.claude', 'plugins', 'codger');
+if (fs.existsSync(path.join(HOME, '.claude'))) {
+  console.log(`[+] Detected Claude Code. Installing plugin to ${claudePluginDir}...`);
+  fs.cpSync(CODGER_SRC, claudePluginDir, { recursive: true, filter: COPY_FILTER });
+  console.log('    OK Claude Code plugin installed.');
+} else {
+  console.log('[-] Claude Code not detected (skipped).');
+}
+
 // 1. Install to CLI Agents (Global)
 for (const [agent, targetDir] of Object.entries(TARGETS)) {
   const baseDir = path.dirname(path.dirname(targetDir));
@@ -84,7 +94,9 @@ function injectIntoDir(dirPath, label) {
 const RULE_TARGETS = [
   ['.clinerules', 'Cline rules', null],       // dir (current) or legacy file
   ['.cursorrules', 'Cursor rules (legacy)', false],
+  ['.cursor/rules', 'Cursor rules (modern)', true],
   ['.windsurfrules', 'Windsurf rules (legacy)', false],
+  ['.windsurf/rules', 'Windsurf rules (modern)', true],
   ['.roo/rules', 'Roo Code rules', true],
   ['.roorules', 'Roo Code rules (legacy)', false],
   ['AGENTS.md', 'AGENTS.md (OpenCode + open standard)', false]

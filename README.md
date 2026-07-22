@@ -28,22 +28,37 @@ Pick one. Mode 1 if you like being told no immediately. Mode 2 if you'd rather t
 No manual copying of markdown into eleven different config folders.
 
 - **Windows:** double-click `install.bat`
-- **Mac/Linux:** `node install.js`
+- **Mac/Linux:** `curl -fsSL https://raw.githubusercontent.com/SolenAI/codger/main/install.sh | bash`
+- **Anywhere (Node.js):** `node install.js`
 
 The installer detects which of these are actually on your machine and drops itself into the correct, verified-real directory for each — not a guess, not a v1-era path that's been dead for six months:
 
 | Tool | Where it lands |
 |---|---|
+| Claude Code (plugin) | `~/.claude/plugins/codger` — auto-inject via hooks, `/codger` commands |
 | Google Antigravity | `~/.gemini/antigravity-cli/plugins/codger` |
-| Hermes Agent | `~/.hermes/skills/codger` (skills dir — plugins need Python, we don't ship any) |
+| Hermes Agent | `~/.hermes/skills/codger` |
 | Pi Agent | `~/.pi/agent/skills/codger` |
 | OpenClaw | `~/.openclaw/skills/codger` |
 | OpenJarvis | `~/.openjarvis/skills/codger` |
-| Anything else on the `agentskills.io` standard | `~/.agents/skills/codger`, installed unconditionally because it's cheap and it's the future |
+| Anything else on the `agentskills.io` standard | `~/.agents/skills/codger`, installed unconditionally |
 
-It also checks your **current project root** for rule conventions and appends itself only if it finds one already there (it will not invent a `.clinerules` folder you never asked for):
+It also checks your **current project root** for rule conventions and appends itself only if it finds one already there:
 
-`.clinerules` (file or dir), `.cursorrules`, `.windsurfrules`, `.roo/rules`, `.roorules`, `AGENTS.md` — covering Cline, Cursor, Windsurf, Roo Code, and OpenCode.
+`.clinerules/`, `.cursorrules`, `.cursor/rules/`, `.windsurfrules`, `.windsurf/rules/`, `.roo/rules/`, `.roorules`, `AGENTS.md` — covering Cline, Cursor, Windsurf, Roo Code, and OpenCode.
+
+### Commands
+
+| Command | Does |
+|---|---|
+| `/codger [lite\|full\|ultra\|off]` | Set intensity or turn off. No arg = report current level. |
+| `/codger-review` | Review current diff for over-engineering. |
+| `/codger-audit` | Audit the whole repo for over-engineering. |
+| `/codger-debt` | Harvest deferred shortcuts into a debt ledger. |
+| `/codger-gain` | Show the measured impact scoreboard. |
+| `/codger-stats` | Read your session log, count tokens saved. |
+| `/codger-compress` | Rewrite memory files for smaller future sessions. |
+| `/codger-help` | Quick reference for the commands above. |
 
 ## Benchmark & stats
 

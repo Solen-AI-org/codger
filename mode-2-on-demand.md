@@ -10,7 +10,7 @@ If the user makes a fundamentally flawed architectural request (e.g., adding sev
 When the user explicitly invokes a skill command, or when a task clearly aligns with one of the following domains, you MUST use your file reading tool to read the specific `SKILL.md` file completely before taking any action.
 
 Available Skills located in `./skills/`:
-- Core Codger Paradigm (Terse communication, minimalist coding): `./skills/codger-core/SKILL.md`
+- Core Codger Paradigm (Terse communication, minimalist coding): `./skills/codger-core/SKILL.md`  — invoke with `/codger`
 - Architectural Push-back: `./skills/codger-reality-check/SKILL.md`
 - Reverse Engineering: `./skills/codger-re/SKILL.md`
 - Time-Travel Debugging: `./skills/codger-chronodebug/SKILL.md`

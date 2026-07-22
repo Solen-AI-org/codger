@@ -1,10 +1,12 @@
 name: codger
-version: 3.0.0
-description: Universal Codger toolkit. Includes Core, Reality-Check, ChronoDebug, Reverse-Engineering, Blast-Radius, and Ephemeral skills.
+version: 3.1.0
+description: Essentialist Architect — terse communication, minimal code, architectural guardianship with autonomous pushback.
 provides_commands:
-  - codger-core
-  - codger-reality-check
-  - codger-re
-  - codger-chronodebug
-  - codger-blast-radius
-  - codger-ephemeral
+  - codger
+  - codger-review
+  - codger-audit
+  - codger-debt
+  - codger-gain
+  - codger-help
+  - codger-stats
+  - codger-compress
