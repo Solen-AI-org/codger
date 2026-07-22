@@ -1,0 +1,10 @@
+name: codger
+version: 3.0.0
+description: Universal Codger toolkit. Includes Core, Reality-Check, ChronoDebug, Reverse-Engineering, Blast-Radius, and Ephemeral skills.
+provides_commands:
+  - codger-core
+  - codger-reality-check
+  - codger-re
+  - codger-chronodebug
+  - codger-blast-radius
+  - codger-ephemeral

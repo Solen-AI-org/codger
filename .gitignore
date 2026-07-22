@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+.claude/
+*.log
+graphify-out/
+.env
+graphify-demo/

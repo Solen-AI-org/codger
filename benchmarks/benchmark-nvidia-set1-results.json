@@ -1,0 +1,350 @@
+{
+  "baseline": {
+    "email": [
+      {
+        "loc": 21,
+        "time": 58.2,
+        "response": "**Email Validation Function in Python**\n=====================================\n\nThe following Python function uses a regular expression to validate email addresses. This function checks if the input string matches the typical format of an email address.\n\n```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"\n    Validate an email address.\n\n    Args:\n    email (str): The email address to be validated.\n\n    Returns:\n    bool: True if the email is valid, False otherwise.\n    \"\"\"\n    # Regular expression for validating an email\n    email_regex = r\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"\n    \n    # Check if the email matches the regular expression\n    if re.match(email_regex, email):\n        return True\n    else:\n        return False\n\n# Example usage:\nif __name__ == \"__main__\":\n    emails = [\"test@example.com\", \"invalid_email\", \"test@example\"]\n    for email in emails:\n        if validate_email(email):\n            print(f\"{email} is a valid email.\")\n        else:\n            print(f\"{email} is not a valid email.\")\n```\n\n**Explanation:**\n\n*   The `validate_email` function takes an email address as input and returns a boolean indicating whether the email is valid or not.\n*   The regular expression `email_regex` checks for the following:\n    *   `^` asserts the start of the line.\n    *   `[a-zA-Z0-9._%+-]+` matches one or more alphanumeric characters, dots, underscores, percent signs, plus signs, or hyphens.\n    *   `@` matches the @ symbol.\n    *   `[a-zA-Z0-9.-]+` matches one or more alphanumeric characters, dots, or hyphens.\n    *   `\\.` matches the dot before the top-level domain.\n    *   `[a-zA-Z]{2,}` matches the top-level domain (it must be at least 2 characters long).\n    *   `$` asserts the end of the line.\n*   The `re.match` function checks if the email matches the regular expression. If it does, the function returns `True`; otherwise, it returns `False`.\n\n**Note:** This function does not check if the email address actually exists or can receive emails. It only checks if the format is correct."
+      },
+      {
+        "loc": 21,
+        "time": 28.1,
+        "response": "**Email Validation Function**\n================================\n\nThe following Python function uses a regular expression to validate email addresses.\n\n```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"\n    Validate an email address.\n\n    Args:\n        email (str): The email address to validate.\n\n    Returns:\n        bool: True if the email address is valid, False otherwise.\n    \"\"\"\n    # Regular expression for validating an email\n    email_regex = r\"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"\n\n    # Check if the email matches the regular expression\n    return bool(re.match(email_regex, email))\n\n# Example usage:\nif __name__ == \"__main__\":\n    emails = [\n        \"test@example.com\",\n        \"invalid_email\",\n        \"test@example\",\n        \"test@.com\",\n        \"test@example.co.uk\"\n    ]\n\n    for email in emails:\n        print(f\"Email: {email}, Valid: {validate_email(email)}\")\n```\n\n**Explanation**\n---------------\n\n*   The `validate_email` function takes an email address as input and returns a boolean indicating whether the email address is valid.\n*   The regular expression `email_regex` checks for the following:\n    *   `^` asserts the start of the line.\n    *   `[a-zA-Z0-9._%+-]+` matches one or more alphanumeric characters, dots, underscores, percent signs, plus signs, or hyphens.\n    *   `@` matches the @ symbol.\n    *   `[a-zA-Z0-9.-]+` matches one or more alphanumeric characters, dots, or hyphens.\n    *   `\\.` matches a dot (escaped with a backslash because dot has a special meaning in regex).\n    *   `[a-zA-Z]{2,}` matches the domain extension (it must be at least 2 characters long).\n    *   `$` asserts the end of the line.\n*   The `re.match` function checks if the email address matches the regular expression. If it does, the function returns `True`; otherwise, it returns `False`.\n\n**Note**\n----\n\n*   This function does not check if the email address actually exists or can receive emails. It only checks if the format is valid.\n*   The regular expression used in this function may not cover all possible valid email formats according to the official specification (RFC 5322), but it covers most common cases."
+      },
+      {
+        "loc": 21,
+        "time": 82.9,
+        "response": "**Email Validation Function**\n==========================\n\nThe following Python function uses a regular expression to validate email addresses. This function checks for the general format of an email address, but keep in mind that fully validating an email address according to the official specification (RFC 5322) can be quite complex.\n\n```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"\n    Validate an email address.\n\n    Args:\n    email (str): The email address to be validated.\n\n    Returns:\n    bool: True if the email address is valid, False otherwise.\n    \"\"\"\n    # Regular expression pattern for email validation\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    \n    # Check if the email matches the pattern\n    if re.match(pattern, email):\n        return True\n    else:\n        return False\n\n# Example usage:\nif __name__ == \"__main__\":\n    emails = [\"test@example.com\", \"invalid_email\", \"another@example.co.uk\"]\n    for email in emails:\n        if validate_email(email):\n            print(f\"{email} is a valid email address.\")\n        else:\n            print(f\"{email} is not a valid email address.\")\n```\n\n**How it works:**\n\n1. The function `validate_email` takes an email address as input and checks it against a regular expression pattern.\n2. The pattern `^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$` breaks down as follows:\n   - `^` asserts the start of the string.\n   - `[a-zA-Z0-9_.+-]+` matches one or more alphanumeric characters, dots, underscores, pluses, or hyphens (the local part of the email).\n   - `@` matches the @ symbol literally.\n   - `[a-zA-Z0-9-]+` matches one or more alphanumeric characters or hyphens (the domain name).\n   - `\\.` matches a dot (.) literally.\n   - `[a-zA-Z0-9-.]+` matches one or more alphanumeric characters, dots, or hyphens (the top-level domain).\n   - `$` asserts the end of the string.\n3. If the email address matches this pattern, the function returns `True`; otherwise, it returns `False`.\n\nRemember, this function does not verify whether the email address actually exists or can receive mail; it only checks the format. For full verification, you would need to send a confirmation email or use a dedicated email validation service."
+      }
+    ],
+    "debounce": [
+      {
+        "loc": 15,
+        "time": 9.0,
+        "response": "```javascript\n/**\n * Debounces a function by a specified delay.\n * \n * @param {function} fn - The function to debounce.\n * @param {number} delay - The delay in milliseconds.\n * @returns {function} - The debounced function.\n */\nfunction debounce(fn, delay) {\n  // Initialize a variable to store the timeout ID.\n  let timeoutId;\n  \n  // Return a new function that wraps the original function.\n  return function(...args) {\n    // Clear the existing timeout if it exists.\n    if (timeoutId) {\n      globalThis.clearTimeout(timeoutId);\n    }\n    \n    // Set a new timeout to call the original function after the delay.\n    timeoutId = globalThis.setTimeout(() => {\n      // Call the original function with the provided arguments.\n      fn(...args);\n    }, delay);\n  };\n}\n\n// Example usage:\nconst debouncedLog = debounce(() => globalThis.console.log('Hello, World!'), 1000);\n\n// Call the debounced function multiple times.\ndebouncedLog();\ndebouncedLog();\ndebouncedLog();\n```"
+      },
+      {
+        "loc": 18,
+        "time": 56.6,
+        "response": "**Debounce Function in Vanilla JavaScript**\n=====================================\n\nThe following code defines a reusable debounce function in vanilla JavaScript. This function takes a function `fn` and a delay `delay` as arguments, and returns a debounced version of `fn` that delays calling it until `delay` ms after the last call.\n\n```javascript\n/**\n * Debounces a function by delaying its execution until after a specified delay.\n * \n * @param {function} fn - The function to debounce.\n * @param {number} delay - The delay in milliseconds.\n * @returns {function} - The debounced function.\n */\nfunction debounce(fn, delay) {\n    let timeoutId;\n    return function(...args) {\n        // Clear the existing timeout if it exists.\n        if (timeoutId) {\n            globalThis.clearTimeout(timeoutId);\n        }\n        \n        // Set a new timeout to call the function after the delay.\n        timeoutId = globalThis.setTimeout(() => {\n            fn(...args);\n        }, delay);\n    };\n}\n\n// Example usage:\nfunction exampleFunction() {\n    globalThis.console.log(\"Example function called\");\n}\n\nconst debouncedExampleFunction = debounce(exampleFunction, 1000);\n\n// Call the debounced function multiple times.\ndebouncedExampleFunction();\ndebouncedExampleFunction();\ndebouncedExampleFunction();\n```\n\n**Explanation:**\n\n1. The `debounce` function takes a function `fn` and a delay `delay` as arguments.\n2. It returns a new function that wraps the original function `fn`.\n3. When the returned function is called, it clears any existing timeout using `clearTimeout`.\n4. It then sets a new timeout using `setTimeout` to call the original function `fn` after the specified delay.\n5. If the returned function is called again before the delay has expired, the existing timeout is cleared and a new timeout is set, effectively debouncing the function.\n\n**Note:** This implementation uses the `globalThis` object to access the `clearTimeout` and `setTimeout` functions, which are part of the global object in a browser environment. If you're using this code in a Node.js environment, you can replace `globalThis` with `global`."
+      },
+      {
+        "loc": 9,
+        "time": 11.1,
+        "response": "```javascript\n/**\n * Debounces a function, delaying its execution until after a specified delay.\n * \n * @param {function} fn - The function to debounce.\n * @param {number} delay - The delay in milliseconds.\n * @returns {function} - The debounced function.\n */\nfunction debounce(fn, delay) {\n  // Initialize a variable to store the timeout ID.\n  let timeoutId;\n  \n  // Return a new function that wraps the original function.\n  return function(...args) {\n    // Clear the existing timeout, if any.\n    clearTimeout(timeoutId);\n    \n    // Set a new timeout to call the original function after the delay.\n    timeoutId = setTimeout(() => {\n      // Call the original function with the provided arguments.\n      fn(...args);\n    }, delay);\n  };\n}\n```"
+      }
+    ],
+    "csv-sum": [
+      {
+        "loc": 33,
+        "time": 12.8,
+        "response": "**Sales Amount Summation Code**\n================================\n\nHere's a Python code snippet that reads the 'sales.csv' file and sums the 'amount' column using the pandas library.\n\n```python\n# Import necessary libraries\nimport pandas as pd\n\ndef sum_sales_amount(csv_file):\n    \"\"\"\n    Reads a CSV file and sums the 'amount' column.\n\n    Args:\n        csv_file (str): The path to the CSV file.\n\n    Returns:\n        float: The sum of the 'amount' column.\n    \"\"\"\n    try:\n        # Read the CSV file\n        sales_data = pd.read_csv(csv_file)\n\n        # Check if 'amount' column exists\n        if 'amount' in sales_data.columns:\n            # Sum the 'amount' column\n            total_amount = sales_data['amount'].sum()\n            return total_amount\n        else:\n            print(\"The 'amount' column does not exist in the CSV file.\")\n            return None\n    except FileNotFoundError:\n        print(\"The CSV file was not found.\")\n        return None\n    except pd.errors.EmptyDataError:\n        print(\"The CSV file is empty.\")\n        return None\n    except pd.errors.ParserError:\n        print(\"Error parsing the CSV file.\")\n        return None\n\ndef main():\n    csv_file = 'sales.csv'\n    total_amount = sum_sales_amount(csv_file)\n    if total_amount is not None:\n        print(f\"The total sales amount is: {total_amount}\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Example Use Case:**\n\n1. Save this code in a file named `sales_sum.py`.\n2. Make sure the `sales.csv` file is in the same directory as the Python script.\n3. Run the script using `python sales_sum.py`.\n4. The script will print the total sales amount.\n\nNote: This code assumes that the 'amount' column contains numeric values. If the column contains non-numeric values, you may need to modify the code to handle those cases."
+      },
+      {
+        "loc": 27,
+        "time": 54.0,
+        "response": "**Sales Amount Summation**\n==========================\n\nBelow is a Python code snippet that reads a CSV file named `sales.csv` and calculates the sum of the `'amount'` column.\n\n```python\nimport pandas as pd\n\ndef sum_sales_amount(csv_file):\n    \"\"\"\n    Reads a CSV file and returns the sum of the 'amount' column.\n\n    Args:\n        csv_file (str): Path to the CSV file.\n\n    Returns:\n        float: Sum of the 'amount' column.\n    \"\"\"\n    try:\n        # Read the CSV file\n        df = pd.read_csv(csv_file)\n\n        # Check if the 'amount' column exists\n        if 'amount' in df.columns:\n            # Calculate the sum of the 'amount' column\n            total_amount = df['amount'].sum()\n\n            return total_amount\n        else:\n            print(\"Error: 'amount' column not found in the CSV file.\")\n            return None\n    except FileNotFoundError:\n        print(\"Error: CSV file not found.\")\n        return None\n\ndef main():\n    csv_file = 'sales.csv'\n    total_amount = sum_sales_amount(csv_file)\n\n    if total_amount is not None:\n        print(f\"Total sales amount: {total_amount}\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Usage**\n--------\n\n1. Save this code in a Python file, e.g., `sales_sum.py`.\n2. Ensure the `pandas` library is installed: `pip install pandas`.\n3. Place the `sales.csv` file in the same directory as the Python script.\n4. Run the script: `python sales_sum.py`.\n\nThis code reads the `sales.csv` file, checks for the `'amount'` column, and calculates its sum. If the column or file is not found, it displays an error message. The `main` function demonstrates how to use the `sum_sales_amount` function."
+      },
+      {
+        "loc": 33,
+        "time": 80.5,
+        "response": "**Sales Amount Summation Code**\n=====================================\n\nHere's a Python script that uses the pandas library to read the 'sales.csv' file and sum the 'amount' column.\n\n```python\n# Import necessary libraries\nimport pandas as pd\n\ndef sum_sales_amount(csv_file):\n    \"\"\"\n    Reads a CSV file and sums the 'amount' column.\n\n    Args:\n        csv_file (str): Path to the CSV file.\n\n    Returns:\n        float: The sum of the 'amount' column.\n    \"\"\"\n    try:\n        # Read the CSV file\n        sales_data = pd.read_csv(csv_file)\n\n        # Check if 'amount' column exists\n        if 'amount' in sales_data.columns:\n            # Sum the 'amount' column\n            total_amount = sales_data['amount'].sum()\n            return total_amount\n        else:\n            print(\"Error: 'amount' column not found in the CSV file.\")\n            return None\n    except FileNotFoundError:\n        print(f\"Error: File '{csv_file}' not found.\")\n        return None\n    except pd.errors.EmptyDataError:\n        print(f\"Error: File '{csv_file}' is empty.\")\n        return None\n    except pd.errors.ParserError:\n        print(f\"Error: Failed to parse file '{csv_file}'.\")\n        return None\n\ndef main():\n    csv_file = 'sales.csv'\n    total_amount = sum_sales_amount(csv_file)\n    if total_amount is not None:\n        print(f\"Total sales amount: {total_amount}\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n**Example Usage:**\n\n1. Save this script as `sales_sum.py`.\n2. Place the `sales.csv` file in the same directory as the script.\n3. Run the script using Python: `python sales_sum.py`\n4. The script will print the total sales amount.\n\nNote: This code assumes that the 'amount' column contains numeric values. If the column contains non-numeric values, you may need to modify the code to handle those cases."
+      }
+    ],
+    "countdown": [
+      {
+        "loc": 38,
+        "time": 48.5,
+        "response": "**Countdown Timer Component in React**\n\nBelow is a simple implementation of a countdown timer component in React. This component takes in a `seconds` prop and counts down from that number.\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      if (timeLeft > 0) {\n        setTimeLeft(timeLeft - 1);\n      } else {\n        clearInterval(intervalId);\n      }\n    }, 1000);\n\n    return () => {\n      clearInterval(intervalId);\n    };\n  }, [timeLeft]);\n\n  const formatTime = (seconds) => {\n    const minutes = Math.floor(seconds / 60);\n    const remainingSeconds = seconds % 60;\n\n    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;\n  };\n\n  return (\n    <div>\n      <h2>Countdown Timer</h2>\n      <p>Time Left: {formatTime(timeLeft)}</p>\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n\n**Example Usage:**\n\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={60} />\n    </div>\n  );\n};\n\nexport default App;\n```\n\n**How it Works:**\n\n1. The `CountdownTimer` component takes in a `seconds` prop, which is the number of seconds to count down from.\n2. The component uses the `useState` hook to store the current time left in the `timeLeft` state variable.\n3. The `useEffect` hook is used to set up an interval that decrements the `timeLeft` state variable every second.\n4. When the `timeLeft` state variable reaches 0, the interval is cleared to prevent it from continuing to decrement.\n5. The `formatTime` function is used to format the time left as MM:SS.\n6. The component renders the time left in the format MM:SS.\n\n**Tips and Variations:**\n\n* You can customize the appearance of the countdown timer by modifying the JSX in the `CountdownTimer` component.\n* You can add additional functionality, such as pausing or resetting the timer, by adding more state variables and updating the `useEffect` hook accordingly.\n* You can use a more precise timing mechanism, such as the `Date` object, to improve the accuracy of the countdown timer."
+      },
+      {
+        "loc": 49,
+        "time": 43.4,
+        "response": "Here's a simple implementation of a countdown timer component in React:\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n  const [isRunning, setIsRunning] = useState(true);\n\n  useEffect(() => {\n    let intervalId;\n\n    if (isRunning) {\n      intervalId = setInterval(() => {\n        if (timeLeft > 0) {\n          setTimeLeft((prevTime) => prevTime - 1);\n        } else {\n          setIsRunning(false);\n        }\n      }, 1000);\n    }\n\n    return () => {\n      clearInterval(intervalId);\n    };\n  }, [isRunning, timeLeft]);\n\n  const formatTime = (seconds) => {\n    const minutes = Math.floor(seconds / 60);\n    const secondsRemaining = seconds % 60;\n\n    return `${minutes.toString().padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}`;\n  };\n\n  return (\n    <div>\n      <p>Time left: {formatTime(timeLeft)}</p>\n      {isRunning ? (\n        <button onClick={() => setIsRunning(false)}>Stop</button>\n      ) : (\n        <button onClick={() => {\n          setIsRunning(true);\n          setTimeLeft(seconds);\n        }}>Restart</button>\n      )}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n\n**Example Usage:**\n\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={60} />\n    </div>\n  );\n};\n\nexport default App;\n```\n\nThis `CountdownTimer` component takes in a `seconds` prop and starts counting down from that number. The countdown is displayed in the format `MM:SS`. The user can stop the countdown and restart it at any time. The component uses the `useState` hook to store the remaining time and a boolean indicating whether the countdown is running. The `useEffect` hook is used to create and clear the interval that updates the time every second."
+      },
+      {
+        "loc": 50,
+        "time": 71.8,
+        "response": "Here's an example of a countdown timer component in React that counts down from a given number of seconds:\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n  const [isRunning, setIsRunning] = useState(true);\n\n  useEffect(() => {\n    let intervalId;\n\n    if (isRunning) {\n      intervalId = setInterval(() => {\n        if (timeLeft > 0) {\n          setTimeLeft((prevTime) => prevTime - 1);\n        } else {\n          setIsRunning(false);\n        }\n      }, 1000);\n    }\n\n    return () => {\n      clearInterval(intervalId);\n    };\n  }, [isRunning, timeLeft]);\n\n  const formatTime = (seconds) => {\n    const minutes = Math.floor(seconds / 60);\n    const remainingSeconds = seconds % 60;\n\n    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;\n  };\n\n  const handleRestart = () => {\n    setIsRunning(true);\n    setTimeLeft(seconds);\n  };\n\n  return (\n    <div>\n      <h1>Countdown Timer</h1>\n      <p>Time Left: {formatTime(timeLeft)}</p>\n      {isRunning ? (\n        <button onClick={() => setIsRunning(false)}>Stop</button>\n      ) : (\n        <button onClick={handleRestart}>Restart</button>\n      )}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n\n### Explanation\n\n*   The `CountdownTimer` component accepts a `seconds` prop, which is the number of seconds to count down from.\n*   The `useState` hook is used to store the remaining time (`timeLeft`) and a boolean indicating whether the timer is running (`isRunning`).\n*   The `useEffect` hook is used to create an interval that decrements the `timeLeft` state every second. The interval is cleared when the component unmounts or when the timer is stopped.\n*   The `formatTime` function formats the remaining time in the format `MM:SS`.\n*   The component renders the remaining time and a button to stop or restart the timer.\n\n### Example Usage\n\nTo use the `CountdownTimer` component, simply import it and render it with a `seconds` prop:\n\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={60} />\n    </div>\n  );\n};\n```\n\nThis will render a countdown timer that counts down from 60 seconds."
+      }
+    ],
+    "rate-limit": [
+      {
+        "loc": 25,
+        "time": 25.9,
+        "response": "**Rate Limiting in FastAPI**\n=========================\n\nTo add rate limiting to your FastAPI endpoint, you can use a library like `slowapi`. Here's an example of how to implement rate limiting:\n\n**Install slowapi**\n-----------------\n\nFirst, install `slowapi` using pip:\n\n```bash\npip install slowapi\n```\n\n**Example Code**\n----------------\n\nHere's an example of how to use `slowapi` to rate limit a FastAPI endpoint:\n\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\nasync def endpoint():\n    return {\"message\": \"Hello, World!\"}\n```\n\nIn this example, the `/endpoint` route is rate limited to 5 requests per minute. If a user exceeds this limit, they will receive a `429 Too Many Requests` response.\n\n**Customizing Rate Limiting**\n---------------------------\n\nYou can customize the rate limiting behavior by passing different arguments to the `@limiter.limit` decorator. For example:\n\n* `@limiter.limit(\"10/second\")` for 10 requests per second\n* `@limiter.limit(\"100/hour\")` for 100 requests per hour\n* `@limiter.limit(\"1000/day\")` for 1000 requests per day\n\nYou can also use the `@limiter.limit` decorator on multiple routes to apply the same rate limit to all of them.\n\n**Using a Different Key Function**\n----------------------------------\n\nBy default, `slowapi` uses the client's IP address as the key for rate limiting. However, you can use a different key function to rate limit based on a different attribute. For example, you can use the `@limiter.limit` decorator with a custom key function to rate limit based on a user's ID:\n\n```python\nfrom fastapi import FastAPI, Request\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=lambda request: request.headers.get(\"X-User-ID\"))\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\nasync def endpoint(request: Request):\n    return {\"message\": \"Hello, World!\"}\n```\n\nIn this example, the rate limit is applied based on the `X-User-ID` header in the request."
+      },
+      {
+        "loc": 34,
+        "time": 47.8,
+        "response": "**Rate Limiting in FastAPI**\n==========================\n\nTo add rate limiting to your FastAPI endpoint, you can use a library like `slowapi`. Here's an example of how you can implement it:\n\n### Install the Required Library\n\nFirst, install the `slowapi` library using pip:\n```bash\npip install slowapi\n```\n\n### Implement Rate Limiting\n\nHere's an example of how you can implement rate limiting in your FastAPI endpoint:\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\nasync def endpoint():\n    return {\"message\": \"Hello, World!\"}\n```\n\nIn this example, the `/endpoint` route is limited to 5 requests per minute from the same IP address. If a user exceeds this limit, they will receive a `429 Too Many Requests` response.\n\n### Customizing the Rate Limiting\n\nYou can customize the rate limiting by changing the `key_func` parameter of the `Limiter` instance. For example, you can use a custom function to limit requests based on the user's username or other attributes.\n\n```python\ndef get_username(request):\n    # Get the username from the request\n    return request.headers.get(\"X-Username\")\n\nlimiter = Limiter(key_func=get_username)\n```\n\nYou can also customize the error handling by creating a custom exception handler.\n\n```python\n@app.exception_handler(RateLimitExceeded)\nasync def custom_rate_limit_exceeded_handler(request, exc):\n    return {\"error\": \"Rate limit exceeded\", \"detail\": \"You have exceeded the rate limit\"}\n```\n\n### Example Use Case\n\nHere's an example of how you can use the rate limiting in a real-world scenario:\n```python\nfrom fastapi import FastAPI, HTTPException\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n# Define a route with rate limiting\n@app.get(\"/api/data\")\n@limiter.limit(\"10/minute\")  # 10 requests per minute\nasync def get_data():\n    # Simulate some data processing\n    return {\"data\": \"Hello, World!\"}\n\n# Define a route without rate limiting\n@app.get(\"/api/docs\")\nasync def get_docs():\n    # Return the API documentation\n    return {\"docs\": \"API Documentation\"}\n```\n\nIn this example, the `/api/data` route is limited to 10 requests per minute, while the `/api/docs` route has no rate limiting."
+      },
+      {
+        "loc": 35,
+        "time": 42.3,
+        "response": "To add rate limiting to a FastAPI endpoint, you can use the `slowapi` library, which is a rate limiter designed for FastAPI. Here's an example of how you can use it:\n\nFirst, install the `slowapi` library:\n\n```bash\npip install slowapi\n```\n\nThen, you can use the `SlowAPI` class to create a rate limiter and apply it to your endpoint:\n\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\ndef endpoint():\n    return {\"message\": \"Hello, World!\"}\n```\n\nIn this example, the `/endpoint` endpoint is limited to 5 requests per minute from the same IP address. If a user exceeds this limit, they will receive a 429 response with a message indicating that the rate limit has been exceeded.\n\nYou can adjust the `key_func` parameter to use a different key function, such as `get_remote_address` or a custom function. The `key_func` parameter determines how the rate limiter identifies unique users.\n\nYou can also use the `@limiter.limit` decorator to apply different rate limits to different endpoints.\n\nNote: Make sure to add the `app.add_exception_handler` line to handle the `RateLimitExceeded` exception, which is raised when the rate limit is exceeded.\n\nHere's a more complex example that includes multiple rate limits and a custom key function:\n\n```python\nfrom fastapi import FastAPI, Request\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n# Define a custom key function that uses a combination of IP address and user ID\ndef get_custom_key(request: Request):\n    return f\"{get_remote_address(request)}_{request.headers.get('X-User-ID')}\"\n\n# Apply rate limits to endpoints\n@app.get(\"/endpoint1\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\ndef endpoint1():\n    return {\"message\": \"Hello, World!\"}\n\n@app.get(\"/endpoint2\")\n@limiter.limit(\"10/minute\", key_func=get_custom_key)  # 10 requests per minute per user\ndef endpoint2(request: Request):\n    return {\"message\": \"Hello, World!\"}\n\n@app.get(\"/endpoint3\")\n@limiter.limit(\"20/hour\")  # 20 requests per hour\ndef endpoint3():\n    return {\"message\": \"Hello, World!\"}\n```\n\nIn this example, the `/endpoint1` endpoint is limited to 5 requests per minute from the same IP address, the `/endpoint2` endpoint is limited to 10 requests per minute per user (identified by a combination of IP address and user ID), and the `/endpoint3` endpoint is limited to 20 requests per hour from the same IP address."
+      }
+    ]
+  },
+  "caveman": {
+    "email": [
+      {
+        "loc": 4,
+        "time": 13.9,
+        "response": "Email validate fn:\n```python\nimport re\n\ndef validate_email(email):\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n```\nUse: `validate_email(\"user@example.com\")` \u2192 `True` or `False`."
+      },
+      {
+        "loc": 6,
+        "time": 5.4,
+        "response": "Email validate. Use regex. \n\n```python\nimport re\n\ndef validate_email(email):\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n\n# Test\nprint(validate_email(\"test@example.com\"))  # True\nprint(validate_email(\"invalid_email\"))  # False\n```"
+      },
+      {
+        "loc": 7,
+        "time": 48.6,
+        "response": "Email validate. Use regex. \n\n```python\nimport re\n\ndef validate_email(email):\n    \"\"\"Validate email address.\"\"\"\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n\n# Test\nprint(validate_email(\"test@example.com\"))  # True\nprint(validate_email(\"invalid_email\"))  # False\n```"
+      }
+    ],
+    "debounce": [
+      {
+        "loc": 7,
+        "time": 50.7,
+        "response": "Debounce fn. Delay call until quiet.\n\n```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  }\n}\n```\n\nUse: `const debouncedLog = debounce(console.log, 500);`"
+      },
+      {
+        "loc": 7,
+        "time": 37.9,
+        "response": "Debounce fn. Delay call till quiet.\n\n```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  }\n}\n```\n\nUse: `const debouncedLog = debounce(console.log, 500);` \nThen `debouncedLog('Hello');`."
+      },
+      {
+        "loc": 10,
+        "time": 15.3,
+        "response": "Debounce fn. Delay call until quiet.\n```javascript\nfunction debounce(fn, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  }\n}\n```\nUse: \n```javascript\nconst debouncedLog = debounce(console.log, 500);\ndebouncedLog('Hello'); // Not log\ndebouncedLog('World'); // Not log\n// Wait 500ms\n// Log: Hello World\n```"
+      }
+    ],
+    "csv-sum": [
+      {
+        "loc": 1,
+        "time": 20.2,
+        "response": "`pd.read_csv('sales.csv')['amount'].sum()`"
+      },
+      {
+        "loc": 1,
+        "time": 35.2,
+        "response": "`pd.read_csv('sales.csv')['amount'].sum()`"
+      },
+      {
+        "loc": 1,
+        "time": 3.8,
+        "response": "`import pandas as pd`. `df = pd.read_csv('sales.csv')`. `sum = df['amount'].sum()`. `print(sum)`."
+      }
+    ],
+    "countdown": [
+      {
+        "loc": 22,
+        "time": 10.7,
+        "response": "Timer component. Count down from seconds prop. \n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nfunction CountdownTimer({ seconds }) {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    let interval;\n    if (timeLeft > 0) {\n      interval = setInterval(() => {\n        setTimeLeft(timeLeft - 1);\n      }, 1000);\n    }\n    return () => clearInterval(interval);\n  }, [timeLeft]);\n\n  const minutes = Math.floor(timeLeft / 60);\n  const seconds = timeLeft % 60;\n\n  return (\n    <div>\n      {minutes.toString().padStart(2, '0')}:\n      {seconds.toString().padStart(2, '0')}\n    </div>\n  );\n}\n\nexport default CountdownTimer;\n```\n\nUse: `<CountdownTimer seconds={60} />`. \n\nMinutes + seconds format. Leading zeros. \n\nTimer update every second. `setInterval` for decrement. `useEffect` for cleanup."
+      },
+      {
+        "loc": 29,
+        "time": 75.9,
+        "response": "Timer component. Count down from seconds. React.\n\n**Code:**\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      if (timeLeft > 0) {\n        setTimeLeft(timeLeft - 1);\n      } else {\n        clearInterval(intervalId);\n      }\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, [timeLeft]);\n\n  return (\n    <div>\n      <p>Time left: {timeLeft} seconds</p>\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n**Use:**\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={10} />\n    </div>\n  );\n};\n```\n**How:**\n\n1. `useState` for time left.\n2. `useEffect` for interval.\n3. Decrement time left every 1000ms.\n4. Clear interval when time left = 0.\n5. Display time left.\n\n**Example:**\n\n* Start with 10 seconds.\n* Countdown: 10, 9, 8, ..., 1, 0.\n* Stop at 0 seconds."
+      },
+      {
+        "loc": 31,
+        "time": 22.4,
+        "response": "Countdown timer. \nMake component. \nUse `useState` + `useEffect`. \n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nfunction CountdownTimer({ seconds }) {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    let interval;\n    if (timeLeft > 0) {\n      interval = setInterval(() => {\n        setTimeLeft((prevTime) => prevTime - 1);\n      }, 1000);\n    }\n    return () => clearInterval(interval);\n  }, [timeLeft]);\n\n  if (timeLeft === 0) {\n    return <div>Time's up!</div>;\n  }\n\n  return (\n    <div>\n      {timeLeft} seconds left\n    </div>\n  );\n}\n\nexport default CountdownTimer;\n```\n\nUse: \n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nfunction App() {\n  return (\n    <div>\n      <CountdownTimer seconds={10} />\n    </div>\n  );\n}\n```\n\nDone."
+      }
+    ],
+    "rate-limit": [
+      {
+        "loc": 12,
+        "time": 57.3,
+        "response": "Rate limit FastAPI endpoint. Use `slowapi` + `slowapi-extensions`.\n\n**Install:**\n```bash\npip install slowapi slowapi-extensions\n```\n**Code:**\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded\nfrom slowapi.extensions import FastAPIRateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(FastAPIRateLimitExceeded, _rate_limit_exceeded)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 req/min\ndef read_endpoint():\n    return {\"msg\": \"Hello World\"}\n```\n**Key func:** `get_remote_address` = IP. Use `get_forwarded_for` for proxy.\n\n**Limit:** \"5/minute\" = 5 req/min. Adjust as needed.\n\n**Error:** `FastAPIRateLimitExceeded` = 429 Too Many Requests."
+      },
+      {
+        "loc": 12,
+        "time": 21.2,
+        "response": "Rate limit endpoint. Use `slowapi` + `slowapi-extensions`. \n\n1. Install: `pip install slowapi slowapi-extensions`.\n2. Create limiter: `limiter = SlowAPI()` then `app.state.limiter = limiter`.\n3. Add rate limit: `@app.get(\"/endpoint\")` then `@limiter.limit(\"5/minute\")`.\n\nExample:\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded\nfrom slowapi.extensions import FastAPIRateLimitExemption\nfrom slowapi.util import get_remote_address\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(_rate_limit_exceeded, lambda e: JSONResponse({\"error\": \"rate limit exceeded\"}, status_code=429))\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")\ndef read_root():\n    return {\"message\": \"Hello World\"}\n```"
+      },
+      {
+        "loc": 12,
+        "time": 15.9,
+        "response": "Rate limit endpoint. Use `slowapi` + `fastapi` extensions. \n\n1. Install: `pip install slowapi fastapi`\n2. Add to app:\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\n\n@app.middleware(\"http\")\nasync def add_rate_limiting(request, call_next):\n    return await limiter.limit(\"5/minute\")(request)(call_next)\n\n@app.get(\"/endpoint\")\nasync def read_root():\n    return {\"message\": \"Hello World\"}\n```\nLimit: 5 reqs/minute per IP. Adjust `limiter` as needed.\n\nTest: `curl -X GET http://localhost:8000/endpoint` 6 times fast. 6th: 429 Too Many Requests."
+      }
+    ]
+  },
+  "ponytail": {
+    "email": [
+      {
+        "loc": 16,
+        "time": 13.4,
+        "response": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"\n    Validate an email address.\n    \n    Args:\n    email (str): The email address to validate.\n    \n    Returns:\n    bool: True if the email is valid, False otherwise.\n    \"\"\"\n    # Regular expression for validating an email\n    regex = r'\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b'\n    \n    # Check if the email matches the regex\n    if re.fullmatch(regex, email):\n        return True\n    else:\n        return False\n\n# Example usage:\nprint(validate_email(\"test@example.com\"))  # Returns: True\nprint(validate_email(\"invalid_email\"))  # Returns: False\n```\n\n\u2192 skipped: full email validation library, add when specific edge cases matter (e.g., internationalized domain names)."
+      },
+      {
+        "loc": 13,
+        "time": 14.8,
+        "response": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"\n    Validate an email address.\n\n    Args:\n    email (str): The email address to validate.\n\n    Returns:\n    bool: True if the email is valid, False otherwise.\n    \"\"\"\n    # Regular expression for validating an email\n    regex = r'\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b'\n    return bool(re.match(regex, email))\n\n# Example usage:\nprint(validate_email(\"test@example.com\"))  # Returns: True\nprint(validate_email(\"invalid_email\"))  # Returns: False\n```\n\n\u2192 skipped: advanced validation (e.g., checking if the domain exists), add when you need to verify email addresses against a real mail server."
+      },
+      {
+        "loc": 8,
+        "time": 78.0,
+        "response": "```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    \"\"\"Validate an email address.\"\"\"\n    # Regular expression for validating an email\n    regex = r'\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b'\n    return bool(re.match(regex, email))\n\n# Example usage\nif __name__ == \"__main__\":\n    print(validate_email(\"test@example.com\"))  # True\n    print(validate_email(\"invalid_email\"))  # False\n```\n\nSkipped: Advanced validation like checking DNS records or verifying the email actually exists, add when such validation is required."
+      }
+    ],
+    "debounce": [
+      {
+        "loc": 7,
+        "time": 7.5,
+        "response": "```javascript\nfunction debounce(fn, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\u2192 skipped: handling of `this` context and potential errors in `fn`, add when context preservation or error handling is required."
+      },
+      {
+        "loc": 11,
+        "time": 31.7,
+        "response": "```javascript\nfunction debounce(fn, delay) {\n  let timeoutId;\n  return function(...args) {\n    if (timeoutId) {\n      globalThis.clearTimeout(timeoutId);\n    }\n    timeoutId = globalThis.setTimeout(() => {\n      fn(...args);\n    }, delay);\n  };\n}\n```\n\n\u2192 skipped: error handling for non-function `fn`, add when users pass bad input.\n\u2192 Explanation: This debounces `fn`, waiting `delay` ms after the last call before invoking `fn`."
+      },
+      {
+        "loc": 11,
+        "time": 16.3,
+        "response": "```javascript\n/**\n * Debounces a function by the specified delay.\n * \n * @param {function} fn - The function to debounce.\n * @param {number} delay - The delay in milliseconds.\n * @returns {function} - The debounced function.\n */\nfunction debounce(fn, delay) {\n  let timeoutId;\n  return function(...args) {\n    // Clear the existing timeout\n    clearTimeout(timeoutId);\n    // Set a new timeout to call the function after the delay\n    timeoutId = setTimeout(() => fn(...args), delay);\n  };\n}\n```\n\nExample usage:\n```javascript\nconst debouncedLog = debounce(console.log, 500);\n\n// Call the debounced function multiple times\ndebouncedLog('Hello');\ndebouncedLog('World');\ndebouncedLog('Debounced');\n\n// Only the last call will be executed after 500ms\n```"
+      }
+    ],
+    "csv-sum": [
+      {
+        "loc": 41,
+        "time": 19.8,
+        "response": "```python\nimport pandas as pd\n\ndef sum_amount(csv_file):\n    try:\n        # Read the CSV file\n        df = pd.read_csv(csv_file)\n        \n        # Check if 'amount' column exists\n        if 'amount' in df.columns:\n            # Sum the 'amount' column\n            total_amount = df['amount'].sum()\n            return total_amount\n        else:\n            print(\"The 'amount' column does not exist in the CSV file.\")\n            return None\n    except FileNotFoundError:\n        print(\"The CSV file does not exist.\")\n        return None\n    except pd.errors.EmptyDataError:\n        print(\"The CSV file is empty.\")\n        return None\n    except pd.errors.ParserError:\n        print(\"Error parsing the CSV file.\")\n        return None\n\n# Usage\ncsv_file = 'sales.csv'\ntotal_amount = sum_amount(csv_file)\n\nif total_amount is not None:\n    print(f\"The total amount is: {total_amount}\")\n```\n\nHowever, following the Ponytail principle, a more straightforward solution using the standard library would be:\n\n```python\nimport csv\n\ndef sum_amount(csv_file):\n    total_amount = 0\n    with open(csv_file, 'r') as file:\n        reader = csv.DictReader(file)\n        for row in reader:\n            try:\n                total_amount += float(row['amount'])\n            except (KeyError, ValueError):\n                pass\n    return total_amount\n\n# Usage\ncsv_file = 'sales.csv'\ntotal_amount = sum_amount(csv_file)\nprint(f\"The total amount is: {total_amount}\")\n```\n\nOr even simpler, using `pandas` with a one-liner:\n\n```python\nimport pandas as pd\n\n# Usage\ncsv_file = 'sales.csv'\ntotal_amount = pd.read_csv(csv_file)['amount'].sum()\nprint(f\"The total amount is: {total_amount}\")\n```"
+      },
+      {
+        "loc": 4,
+        "time": 27.0,
+        "response": "```python\nimport pandas as pd\n\n# Read the CSV file\ndf = pd.read_csv('sales.csv')\n\n# Sum the 'amount' column\ntotal_amount = df['amount'].sum()\n\nprint(total_amount)\n```\n\nSkipped: error handling for file not found or missing 'amount' column, add when sales.csv is not in the current directory or 'amount' column is missing."
+      },
+      {
+        "loc": 8,
+        "time": 14.5,
+        "response": "```python\nimport pandas as pd\n\ndef sum_amount(csv_file):\n    # Read the CSV file\n    df = pd.read_csv(csv_file)\n    \n    # Sum the 'amount' column\n    total_amount = df['amount'].sum()\n    \n    return total_amount\n\n# Usage\ncsv_file = 'sales.csv'\ntotal_amount = sum_amount(csv_file)\nprint(f'Total amount: {total_amount}')\n\n# ponytail: Using pandas for CSV handling, native sum for simplicity.\n```"
+      }
+    ],
+    "countdown": [
+      {
+        "loc": 34,
+        "time": 16.5,
+        "response": "**Countdown Timer Component**\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n  const [isRunning, setIsRunning] = useState(true);\n\n  useEffect(() => {\n    let intervalId;\n    if (isRunning) {\n      intervalId = setInterval(() => {\n        if (timeLeft > 0) {\n          setTimeLeft(timeLeft - 1);\n        } else {\n          setIsRunning(false);\n        }\n      }, 1000);\n    }\n    return () => clearInterval(intervalId);\n  }, [isRunning, timeLeft]);\n\n  return (\n    <div>\n      <p>Time left: {timeLeft}</p>\n      {isRunning ? (\n        <button onClick={() => setIsRunning(false)}>Stop</button>\n      ) : (\n        <button onClick={() => setIsRunning(true)}>Start</button>\n      )}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n**Example Usage:**\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return <CountdownTimer seconds={10} />;\n};\n```\nThis component uses the `useState` hook to store the remaining time and a boolean indicating whether the timer is running. The `useEffect` hook is used to set up an interval that decrements the time every second. When the time reaches 0, the timer stops. The component also includes a button to start or stop the timer.\n\n**Skipped:** Custom styling and advanced features like pause/resume functionality.\n**Add when:** You need a more customizable timer or features like alert notifications when the timer expires."
+      },
+      {
+        "loc": 43,
+        "time": 27.7,
+        "response": "**Countdown Timer Component**\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n  const [isRunning, setIsRunning] = useState(true);\n\n  useEffect(() => {\n    let intervalId;\n    if (isRunning) {\n      intervalId = setInterval(() => {\n        if (timeLeft > 0) {\n          setTimeLeft(timeLeft - 1);\n        } else {\n          setIsRunning(false);\n        }\n      }, 1000);\n    }\n    return () => clearInterval(intervalId);\n  }, [isRunning, timeLeft]);\n\n  const formatTime = (seconds) => {\n    const minutes = Math.floor(seconds / 60);\n    const secondsRemaining = seconds % 60;\n    return `${minutes.toString().padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}`;\n  };\n\n  return (\n    <div>\n      <p>Time left: {formatTime(timeLeft)}</p>\n      {isRunning ? (\n        <button onClick={() => setIsRunning(false)}>Stop</button>\n      ) : (\n        <button onClick={() => setIsRunning(true)}>Start</button>\n      )}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n**Example Usage**\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={60} />\n    </div>\n  );\n};\n```\nSkipped: Custom styling, add when visual design matters.\nAdd when: Need to display days, hours, or milliseconds."
+      },
+      {
+        "loc": 23,
+        "time": 98.8,
+        "response": "```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    let intervalId;\n    if (timeLeft > 0) {\n      intervalId = setInterval(() => {\n        setTimeLeft((prevTime) => prevTime - 1);\n      }, 1000);\n    }\n    return () => clearInterval(intervalId);\n  }, [timeLeft]);\n\n  return (\n    <div>\n      {timeLeft > 0 ? (\n        <p>Time left: {timeLeft} seconds</p>\n      ) : (\n        <p>Countdown finished!</p>\n      )}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n\n\u2192 skipped: adding a pause/resume feature, adding a reset button. \nAdd when you need more control over the countdown."
+      }
+    ],
+    "rate-limit": [
+      {
+        "loc": 14,
+        "time": 25.1,
+        "response": "```python\nfrom fastapi import FastAPI, Request\nfrom fastapi.responses import JSONResponse\nfrom fastapi.exceptions import HTTPException\nfrom slowapi import Limiter, RateLimitExceeded\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, lambda _: JSONResponse(status_code=429, content={\"error\": \"Rate limit exceeded\"}))\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\nasync def endpoint():\n    # endpoint code here\n    return {\"message\": \"Hello, World!\"}\n```\n\n\u2192 skipped: custom rate limiting implementation with Redis or database, add when SlowAPI library is insufficient."
+      },
+      {
+        "loc": 11,
+        "time": 29.9,
+        "response": "**Rate Limiting with SlowAPI**\n\nTo add rate limiting to your FastAPI endpoint, you can use the SlowAPI library, which provides a simple way to implement rate limiting.\n\n```python\nfrom fastapi import FastAPI, HTTPException\nfrom slowapi import Limiter, SlowAPI\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\nslowapi = SlowAPI(app, limiter=limiter)\n\n@slowapi.limit(\"5/minute\")  # 5 requests per minute\n@app.get(\"/endpoint\")\nasync def read_endpoint():\n    return {\"message\": \"Hello World\"}\n```\n\n**skipped:** custom rate limiting implementation, **add when:** you need more advanced rate limiting features or customization.\n\nThis code adds a rate limit of 5 requests per minute to the `/endpoint` endpoint. If a user exceeds this limit, SlowAPI will return a 429 Too Many Requests response."
+      },
+      {
+        "loc": 17,
+        "time": 19.6,
+        "response": "```python\nfrom fastapi import FastAPI, Request\nfrom fastapi.responses import JSONResponse\nfrom fastapi.middleware import Middleware\nfrom slowapi import Limiter, RateLimitExceeded\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\n\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_middleware(\n    Middleware,\n    limiter=limiter\n)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\nasync def read_root():\n    return {\"message\": \"Hello, World!\"}\n```\n\n\u2192 skipped: IP blocking for known spammer IPs, add when a significant spam source is identified. \n\nNote: This code uses the `slowapi` library, which is a simple rate limiter for FastAPI. The `get_remote_address` function is used to get the client's IP address, and the `@limiter.limit` decorator is used to set the rate limit."
+      }
+    ]
+  },
+  "codger": {
+    "email": [
+      {
+        "loc": 6,
+        "time": 3.6,
+        "response": "Email validation function: \n```python\nimport re\n\ndef validate_email(email):\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n\n# Example usage:\nprint(validate_email(\"test@example.com\"))  # True\nprint(validate_email(\"invalid_email\"))  # False\n```"
+      },
+      {
+        "loc": 6,
+        "time": 39.8,
+        "response": "Email validation. `re` module sufficient. \n\n```python\nimport re\n\ndef validate_email(email):\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n\n# Example usage:\nprint(validate_email(\"test@example.com\"))  # True\nprint(validate_email(\"invalid_email\"))  # False\n```"
+      },
+      {
+        "loc": 9,
+        "time": 9.5,
+        "response": "Email validation function: \n```python\nimport re\n\ndef validate_email(email: str) -> bool:\n    pattern = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n    return bool(re.match(pattern, email))\n\n# Example usage:\nemail = \"test@example.com\"\nif validate_email(email):\n    print(f\"{email} is valid.\")\nelse:\n    print(f\"{email} is invalid.\")\n```"
+      }
+    ],
+    "debounce": [
+      {
+        "loc": 7,
+        "time": 7.3,
+        "response": "Debounce function implemented. \n```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  }\n}\n```"
+      },
+      {
+        "loc": 7,
+        "time": 24.3,
+        "response": "Debounce function implemented. \n```javascript\nfunction debounce(fn, delay) {\n  let timeout;\n  return function(...args) {\n    clearTimeout(timeout);\n    timeout = setTimeout(() => fn(...args), delay);\n  }\n}\n```"
+      },
+      {
+        "loc": 7,
+        "time": 21.9,
+        "response": "Debounce function implemented. \n```javascript\nfunction debounce(fn, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => fn(...args), delay);\n  }\n}\n```"
+      }
+    ],
+    "csv-sum": [
+      {
+        "loc": 17,
+        "time": 4.5,
+        "response": "**Sales Amount Sum**\n```python\nimport pandas as pd\n\ndef sum_sales_amount(file_path):\n    \"\"\"Sums the 'amount' column in sales.csv.\"\"\"\n    try:\n        sales_df = pd.read_csv(file_path)\n        amount_sum = sales_df['amount'].sum()\n        return amount_sum\n    except FileNotFoundError:\n        print(\"File not found.\")\n        return None\n    except KeyError:\n        print(\"'amount' column not found.\")\n        return None\n\nfile_path = 'sales.csv'\namount_sum = sum_sales_amount(file_path)\nif amount_sum is not None:\n    print(f\"Total sales amount: {amount_sum}\")\n```"
+      },
+      {
+        "loc": 4,
+        "time": 18.0,
+        "response": "`amount` sum: \n```python\nimport pandas as pd\n\ndf = pd.read_csv('sales.csv')\ntotal_amount = df['amount'].sum()\nprint(total_amount)\n```"
+      },
+      {
+        "loc": 15,
+        "time": 20.7,
+        "response": "```python\nimport pandas as pd\n\ndef sum_amount(csv_file):\n    try:\n        df = pd.read_csv(csv_file)\n        return df['amount'].sum()\n    except FileNotFoundError:\n        print(\"File not found.\")\n        return None\n    except KeyError:\n        print(\"'amount' column not found.\")\n        return None\n\ncsv_file = 'sales.csv'\ntotal_amount = sum_amount(csv_file)\nif total_amount is not None:\n    print(f\"Total amount: {total_amount}\")\n```"
+      }
+    ],
+    "countdown": [
+      {
+        "loc": 30,
+        "time": 9.9,
+        "response": "Countdown timer component: `CountdownTimer.js`\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [time, setTime] = useState(seconds);\n\n  useEffect(() => {\n    const interval = setInterval(() => {\n      if (time > 0) {\n        setTime(time - 1);\n      } else {\n        clearInterval(interval);\n      }\n    }, 1000);\n    return () => clearInterval(interval);\n  }, [time]);\n\n  return (\n    <div>\n      {time === 0 ? 'Time\\'s up!' : `${time} seconds remaining`}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\nUsage: `App.js`\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={10} />\n    </div>\n  );\n};\n\nexport default App;\n```"
+      },
+      {
+        "loc": 19,
+        "time": 20.8,
+        "response": "Timer component required. Implementing minimal countdown timer.\n\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [time, setTime] = useState(seconds);\n\n  useEffect(() => {\n    let interval;\n    if (time > 0) {\n      interval = setInterval(() => {\n        setTime((prevTime) => prevTime - 1);\n      }, 1000);\n    }\n    return () => clearInterval(interval);\n  }, [time]);\n\n  return (\n    <div>\n      {time === 0 ? 'Time\\'s up!' : `Time remaining: ${time} seconds`}\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n\nUsage: `CountdownTimer seconds={60}`. Timer counts down from given seconds."
+      },
+      {
+        "loc": 34,
+        "time": 15.2,
+        "response": "**Countdown Timer Component**\n```jsx\nimport React, { useState, useEffect } from 'react';\n\nconst CountdownTimer = ({ seconds }) => {\n  const [timeLeft, setTimeLeft] = useState(seconds);\n\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      if (timeLeft > 0) {\n        setTimeLeft(timeLeft - 1);\n      } else {\n        clearInterval(intervalId);\n      }\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, [timeLeft]);\n\n  const formatTime = (seconds) => {\n    const minutes = Math.floor(seconds / 60);\n    const remainingSeconds = seconds % 60;\n    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;\n  };\n\n  return (\n    <div>\n      <p>Time left: {formatTime(timeLeft)}</p>\n    </div>\n  );\n};\n\nexport default CountdownTimer;\n```\n**Usage**\n```jsx\nimport React from 'react';\nimport CountdownTimer from './CountdownTimer';\n\nconst App = () => {\n  return (\n    <div>\n      <CountdownTimer seconds={60} />\n    </div>\n  );\n};\n```\n**Notes**\n\n* The `CountdownTimer` component takes a `seconds` prop, which is the number of seconds to count down from.\n* The component uses the `useState` hook to store the remaining time in state.\n* The `useEffect` hook is used to create an interval that decrements the time every second.\n* The `formatTime` function is used to format the remaining time as MM:SS.\n* The component returns a paragraph element with the formatted time."
+      }
+    ],
+    "rate-limit": [
+      {
+        "loc": 11,
+        "time": 8.8,
+        "response": "Rate limiting implemented. Using `slowapi` library. \n\n**RateLimiter Configuration:**\n- **Rate:** 10 requests/minute\n- **Expiration:** 1 minute\n\n**Endpoint Updated:**\n```python\nfrom fastapi import FastAPI, HTTPException\nfrom slowapi import Limiter, SlowAPI\nfrom slowapi.util import get_remote_address\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(429, lambda _, __: HTTPException(status_code=429, detail=\"Rate limit exceeded\"))\n\n# Apply rate limiting to endpoint\n@app.get(\"/endpoint\")\n@limiter.limit(\"10/minute\")\nasync def endpoint():\n    # Endpoint logic\n    return {\"message\": \"Endpoint response\"}\n```"
+      },
+      {
+        "loc": 13,
+        "time": 39.4,
+        "response": "Rate limiting implemented. Using `slowapi` and `slowapi-extensions`. \n\nFirst, install required packages: \n```bash\npip install slowapi slowapi-extensions\n```\n\nNext, integrate rate limiting into FastAPI endpoint:\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded_handler\nfrom slowapi.util import get_remote_address\nfrom slowapi.errors import RateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\")  # 5 requests per minute\ndef read_root():\n    return {\"message\": \"Hello, World!\"}\n```"
+      },
+      {
+        "loc": 12,
+        "time": 13.6,
+        "response": "Rate limiting implemented. Using `slowapi` and `slowapi.extensions`. \n\nAdd dependencies: \n```\npip install slowapi slowapi-extensions\n```\n\nEndpoint example:\n```python\nfrom fastapi import FastAPI\nfrom slowapi import Limiter, _rate_limit_exceeded\nfrom slowapi.extensions import FastAPIRateLimitExceeded\n\napp = FastAPI()\nlimiter = Limiter(key_func=get_remote_address)\napp.state.limiter = limiter\napp.add_exception_handler(FastAPIRateLimitExceeded, _rate_limit_exceeded)\n\n@app.get(\"/endpoint\")\n@limiter.limit(\"5/minute\") \nasync def endpoint():\n    return {\"message\": \"Hello, World!\"}\n```"
+      }
+    ]
+  }
+}

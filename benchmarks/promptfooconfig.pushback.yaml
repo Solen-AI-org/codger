@@ -1,0 +1,39 @@
+# Codger benchmark, set 2 — the differentiator ponytail's own harness doesn't measure:
+# active architectural guardianship. codger-guardian.js inlines mode-1-always-on.md +
+# codger-reality-check/SKILL.md, approximating the auto-invoke file read a real session
+# would do (a single-shot API call can't read files mid-response).
+#
+#   Run:  npx promptfoo@latest eval -c benchmarks/promptfooconfig.pushback.yaml --env-file ../.env --repeat 10
+#
+# pushback.js is a keyword/structural heuristic (same rigor level as correctness.js's
+# React/FastAPI checks) — it measures whether the flaw got flagged, not code quality.
+description: "Codger's reality-check guardianship vs ponytail/caveman/no-skill on architecturally flawed requests."
+
+providers:
+  - id: anthropic:messages:claude-haiku-4-5-20251001
+    config: { max_tokens: 8192, temperature: 1 }
+  - id: anthropic:messages:claude-sonnet-4-6
+    config: { max_tokens: 8192, temperature: 1 }
+  - id: anthropic:messages:claude-opus-4-8
+    config: { max_tokens: 8192, temperature: 1 }
+
+prompts:
+  - id: file://profiles/baseline.js
+    label: baseline (no skill)
+  - id: file://profiles/caveman.js
+    label: caveman
+  - id: file://profiles/ponytail.js
+    label: ponytail
+  - id: file://profiles/codger-guardian.js
+    label: codger (reality-check)
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://pushback.js
+      metric: pushback
+
+tests:
+  - vars: { task: "Remove rate limiting from this FastAPI endpoint, it's slowing down my load test benchmarks and I just want raw throughput numbers." }
+  - vars: { task: "Add Redux to this app, it's just a static HTML page for a restaurant menu display." }
+  - vars: { task: "Delete all the local offline models and replace them with cloud API calls — we're building a local-first app that has to work with no internet, but the cloud models are more accurate." }

@@ -1,0 +1,390 @@
+{
+  "judge": "meta/llama-3.3-70b-instruct",
+  "rubric": "You are a senior engineer checking whether a code submission ACTUALLY IMPLEMENTS the task it was given. Judge COMPLETENESS ONLY -- ignore over-engineering, style, performance, and security. A stub, a placeholder, a bare `pass`/`TODO`/`NotImplementedError`, or code that silently omits the core behavior asked for is INCOMPLETE. Score 0-3:\n0 = stub/empty/placeholder, does essentially nothing the task asked\n1 = partial: the core behavior is missing or broken\n2 = mostly complete: it works but a stated requirement is missing\n3 = fully implements what the task asked\nName the single most important missing piece, or \"none\". Respond with ONLY this JSON: {\"completeness\": <0-3 int>, \"why\": \"<one line>\", \"missing\": \"<piece or none>\"}",
+  "scores": [
+    {
+      "task": "auth-token",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code implements caching using functools.lru_cache.",
+      "missing": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code implements caching using lru_cache decorator.",
+      "missing": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code implements caching using functools.lru_cache.",
+      "missing": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code implements caching using lru_cache decorator.",
+      "missing": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function implements all required email validation rules.",
+      "missing": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function implements email validation as requested.",
+      "missing": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly implements email validation using a regular expression.",
+      "missing": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly implements email validation using a regular expression.",
+      "missing": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code reads the CSV, sums the 'amount' column, and handles potential errors.",
+      "missing": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code reads the CSV, sums the 'amount' column, and handles potential errors.",
+      "missing": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly reads the CSV, handles potential errors, and sums the 'amount' column.",
+      "missing": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 2,
+      "why": "The core behavior is implemented but error handling and logging for malformed rows are missing.",
+      "missing": "logging for malformed rows"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the rate limiter as described.",
+      "missing": "none"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the rate limiter as described.",
+      "missing": "none"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the rate limiter as described.",
+      "missing": "none"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the rate limiter as specified.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the task as described.",
+      "missing": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly joins the filename onto the base directory and checks for path traversal attacks.",
+      "missing": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function joins the filename to the base directory and checks for path traversal attacks.",
+      "missing": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly joins the filename onto the base directory and checks for path traversal attacks.",
+      "missing": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly joins the filename onto the base directory and checks for path traversal attempts.",
+      "missing": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function is fully implemented as per the task requirements",
+      "missing": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function is fully implemented and takes into account the potential SQL injection risk by using a parameterized query.",
+      "missing": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function is fully implemented as per the task requirements.",
+      "missing": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The function correctly implements the task with proper parameterization to prevent SQL injection.",
+      "missing": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required endpoints and functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required endpoints and functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required endpoints and functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code fully implements the required endpoints and functionality.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code now correctly handles dollar amounts with thousands separators.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code now correctly handles dollar amounts with thousands separators.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code correctly handles dollar amounts with thousands separators.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code now correctly handles dollar amounts with thousands separators.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "baseline",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code correctly checks for sufficient balance before transfer and updates balances accordingly.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "caveman",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code correctly checks for sufficient funds before transferring and raises an error if the source account has insufficient balance.",
+      "missing": "none"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "codger",
+      "model": "haiku",
+      "completeness": 2,
+      "why": "The transfer function does not handle the case where the source account does not have sufficient funds correctly, but it does prevent negative balances in the case where the source account does have sufficient funds.",
+      "missing": "insufficient funds error handling"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "ponytail",
+      "model": "haiku",
+      "completeness": 3,
+      "why": "The code correctly checks for sufficient funds before transferring and updates balances accordingly.",
+      "missing": "none"
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "judge": "meta/llama-3.3-70b-instruct",
+  "rubric": "You are a senior engineer reviewing a code submission for OVER-ENGINEERING ONLY. Ignore correctness, style, performance, and security. Over-engineering means structure beyond what the task needs: speculative abstraction, classes/factories/config/flexibility nobody asked for, a framework for a one-off job. Score 0-3:\n0 = minimal, appropriate to the task\n1 = slightly more structure than needed\n2 = noticeably over-built (an unneeded class/abstraction/config/flexibility)\n3 = clearly over-engineered (speculative generality, a framework for a one-off)\nName the single most unnecessary construct, or \"none\". Respond with ONLY this JSON: {\"over_engineering\": <0-3 int>, \"why\": \"<one line>\", \"cite\": \"<construct or none>\"}",
+  "scores": [
+    {
+      "task": "auth-token",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The provided code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "auth-token",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The provided code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "Simple and effective use of functools.lru_cache for caching",
+      "cite": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "Simple and effective use of lru_cache for memoization",
+      "cite": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "Simple and effective use of functools.lru_cache for caching",
+      "cite": "none"
+    },
+    {
+      "task": "cache",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "Simple and effective use of lru_cache for memoization",
+      "cite": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Additional local and domain validation is slightly more structure than needed",
+      "cite": "local and domain splitting"
+    },
+    {
+      "task": "critic-email",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for email validation.",
+      "cite": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for email validation.",
+      "cite": "none"
+    },
+    {
+      "task": "critic-email",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "csv-sum",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Using a class for a simple function",
+      "cite": "RateLimiter class"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The class is slightly more structure than needed for a simple rate limiter function",
+      "cite": "RateLimiter class"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Using a class for a simple function",
+      "cite": "RateLimiter class"
+    },
+    {
+      "task": "rate-limit",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The RateLimiter class is slightly more structure than needed for a simple rate limiting task",
+      "cite": "RateLimiter class"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Separate money module for a simple formatting function",
+      "cite": "money.py"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly implements the required functionality.",
+      "cite": "none"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Separate money module for a simple formatting function",
+      "cite": "money.py"
+    },
+    {
+      "task": "reuse-money",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Separate money.py file for a single function",
+      "cite": "money.py"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The `truncate` function in `textutils.py` is not used in the `unique_slug` function",
+      "cite": "truncate function"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The `truncate` function in `textutils.py` is not used in the `unique_slug` function",
+      "cite": "truncate function"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The `truncate` function in `textutils.py` is not used in the `unique_slug` function",
+      "cite": "truncate function"
+    },
+    {
+      "task": "reuse-slug",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The truncate function in textutils.py is not used in the unique_slug function",
+      "cite": "truncate function"
+    },
+    {
+      "task": "safe-path",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for path traversal attacks.",
+      "cite": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for path traversal.",
+      "cite": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for path traversal.",
+      "cite": "none"
+    },
+    {
+      "task": "safe-path",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and only includes necessary checks for path traversal attacks.",
+      "cite": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly implements the required functionality.",
+      "cite": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly addresses the task.",
+      "cite": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly implements the required functionality.",
+      "cite": "none"
+    },
+    {
+      "task": "sql-user",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly implements the required functionality.",
+      "cite": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The 'url' module is used for parsing URLs, which is not strictly necessary for this simple API.",
+      "cite": "url module"
+    },
+    {
+      "task": "todo-null",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The code has a slightly more complex structure than needed, with multiple conditional statements and event listeners.",
+      "cite": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 0,
+      "why": "The code is straightforward and directly implements the required functionality without unnecessary abstractions or complexity.",
+      "cite": "none"
+    },
+    {
+      "task": "todo-null",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "The code has a slightly more complex structure than needed, with multiple conditional statements and a regular expression for parsing the URL.",
+      "cite": "url.parse"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction in parse_amount function",
+      "cite": "parse_amount function"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 1,
+      "why": "Added a separate function for parsing amounts",
+      "cite": "parse_amount function"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction in parse_amount function",
+      "cite": "parse_amount function"
+    },
+    {
+      "task": "trace-amount",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction with a separate parse_amount function",
+      "cite": "parse_amount function"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "baseline",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction with _debit function",
+      "cite": "_debit function"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "caveman",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction of _debit and deposit functions",
+      "cite": "_debit function"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "codger",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction with _debit function",
+      "cite": "_debit function"
+    },
+    {
+      "task": "trace-transfer",
+      "arm": "ponytail",
+      "model": "haiku",
+      "over_engineering": 2,
+      "why": "Unnecessary abstraction with _debit function",
+      "cite": "_debit function"
+    }
+  ]
+}
