@@ -6,3 +6,5 @@ build/
 graphify-out/
 .env
 graphify-demo/
+__pycache__/
+*.pyc
