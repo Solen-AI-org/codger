@@ -74,7 +74,7 @@ It also checks your **current project root** for rule conventions and appends it
 
 `benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have. Four sets run so far (Set 0 tooling + Sets 1–3 below), different strengths — read all three charts, not just one.
 
-### Set 1 — parity with ponytail's own benchmark (single-shot)
+### Set 1 — same 5 tasks as ponytail's own benchmark (single-shot)
 
 <img src="benchmarks/assets/benchmark-set1.svg" width="700" alt="LOC vs no-skill baseline, Set 1 parity benchmark: baseline 152 LOC (100%), caveman 55 (36%), codger 70 (46%), ponytail 80 (53%)">
 
