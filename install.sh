@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Codger installer — Mac/Linux/WSL/Git Bash
-# One command: curl -fsSL https://raw.githubusercontent.com/SolenAI/codger/main/install.sh | bash
+# One command: curl -fsSL https://raw.githubusercontent.com/Solen-AI-org/codger/main/install.sh | bash
 set -euo pipefail
 
 echo "Codger Installer"

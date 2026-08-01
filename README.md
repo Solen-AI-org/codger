@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="codger_nobg.png" alt="Codger" width="200">
+</p>
+
 # Codger
 
 An agent skill that tries to stop your AI from writing 400 lines when 4 would do. It also refuses to run `psql` just to remember a boolean.
@@ -28,7 +32,7 @@ Pick one. Mode 1 if you like being told no immediately. Mode 2 if you'd rather t
 No manual copying of markdown into eleven different config folders.
 
 - **Windows:** double-click `install.bat`
-- **Mac/Linux:** `curl -fsSL https://raw.githubusercontent.com/SolenAI/codger/main/install.sh | bash`
+- **Mac/Linux:** `curl -fsSL https://raw.githubusercontent.com/Solen-AI-org/codger/main/install.sh | bash`
 - **Anywhere (Node.js):** `node install.js`
 
 The installer detects which of these are actually on your machine and drops itself into the correct, verified-real directory for each — not a guess, not a v1-era path that's been dead for six months:
