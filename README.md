@@ -72,7 +72,23 @@ It also checks your **current project root** for rule conventions and appends it
 
 ## Benchmark & stats
 
-`benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have.
+`benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have. Four sets, different strengths — read both charts, not just one.
+
+### Set 3 — real Claude Code sessions (the one that matters most)
+
+<img src="benchmarks/assets/benchmark-set3.svg" width="700" alt="LOC change vs baseline, Set 3 agentic benchmark, real Claude Code sessions: caveman +1%, ponytail -5%, codger -10% (best)">
+
+| arm | LOC | tokens | cost | time | over-eng. (0–3) |
+|---|--:|--:|--:|--:|--:|
+| caveman | +1% | −1% | −1% | −13% | 0.50 |
+| ponytail | −5% | +10% | +14% | +10% | 0.67 |
+| **codger** | **−10%** | +12% | +7% | +19% | **0.58** |
+
+Only set run as real Claude Code sessions (Haiku, n=1, 12 surgical tasks) instead of single-shot API calls — the other skills as installed hook-based plugins, codger via `--append-system-prompt`. Codger writes the least code of the three and is second-lowest on over-engineering, at a real tokens/cost/time premium (a CLAUDE.md-style ruleset re-injects heavier than a single skill file). n=1 — one run, not a settled result.
+
+Codger is also the only one of the three with an active architectural-pushback benchmark (Set 2, `pushback.js`) — no equivalent exists for caveman or ponytail. The raw pushback-rate numbers from that set are noisy (keyword heuristic favors verbose baseline prose) and inconclusive as measured — see [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml) before citing them.
+
+### Set 1 — parity with ponytail's own benchmark (single-shot)
 
 <img src="benchmarks/assets/benchmark-set1.svg" width="700" alt="LOC vs no-skill baseline, Set 1 parity benchmark: baseline 152 LOC (100%), caveman 55 (36%), codger 70 (46%), ponytail 80 (53%)">
 
@@ -82,7 +98,9 @@ It also checks your **current project root** for rule conventions and appends it
 | **codger** | **70** | **46%** |
 | ponytail | 80 | 53% |
 
-n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM) — direction matches ponytail's own published Claude numbers, exact ranking is this-model-this-run, not a general claim. Full caveats and the Set 3 agentic table (real Claude Code sessions, LOC/tokens/cost/time/safety): [benchmarks/README.md](benchmarks/README.md).
+n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM), single-shot (no real session, no re-injection cost) — direction matches ponytail's own published Claude numbers, exact ranking is this-model-this-run, not a general claim. Caveman comes out leanest here.
+
+Full methodology, caveats, and Set 2 detail: [benchmarks/README.md](benchmarks/README.md).
 
 **No API keys required for the skill itself.** The skill works out of the box — it's just a ruleset + skill files.
 
