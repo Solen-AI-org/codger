@@ -88,7 +88,9 @@ n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM), single-sh
 
 ### Set 2 — guardianship (codger-only, no ponytail/caveman equivalent)
 
-Codger is the only one of the three with an active architectural-pushback benchmark at all — `pushback.js`, three tasks with a real flaw baked in (removing rate limiting, adding Redux to a static page, replacing offline models with cloud calls). The raw pushback-rate numbers aren't reproduced here: the keyword-match measurement (`benchmarks/README.md`'s own honesty note) structurally favors verbose prose over terse output, so it's not a fair read on this skill and isn't worth citing as a scoreboard. Full data and the writeup of why the metric is broken: [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml).
+<img src="benchmarks/assets/benchmark-set2.svg" width="700" alt="Active architectural pushback: codger 22% avg pushback rate (n=3), caveman 0% (no guardianship mechanism), ponytail 0% (no guardianship mechanism)">
+
+Codger is the only one of the three with an active architectural-pushback benchmark at all — `pushback.js`, three tasks with a real flaw baked in (removing rate limiting, adding Redux to a static page, replacing offline models with cloud calls). Caveman and ponytail score 0% because neither has any guardianship feature to measure — that's structural, not an artifact of the test. Codger's own 22% comes from a noisy keyword-match measurement (thin n=3, biased toward verbose prose) — read the caveats before citing that number on its own: [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml).
 
 ### Set 3 — real Claude Code sessions (most credible: not single-shot)
 
