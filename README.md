@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/Solen-AI-org/codger?style=flat-square&color=111111&label=stars" alt="Stars">
-  <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license">
-  <img src="https://img.shields.io/badge/benchmarked%20against-caveman%20%7C%20ponytail-111111?style=flat-square" alt="Benchmarked against caveman and ponytail">
+  <a href="https://github.com/Solen-AI-org/codger/stargazers"><img src="https://img.shields.io/github/stars/Solen-AI-org/codger?style=flat-square&color=111111&label=stars" alt="Stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license"></a>
+  <a href="#benchmark--stats"><img src="https://img.shields.io/badge/benchmarked%20against-caveman%20%7C%20ponytail-111111?style=flat-square" alt="Benchmarked against caveman and ponytail"></a>
 </p>
 
 # Codger
