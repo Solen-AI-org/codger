@@ -11,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-// Measured LOC-reduction ratio, from benchmarks/results/2026-07-08-nvidia-nim-set1.md
+// Measured LOC-reduction ratio, from benchmarks/results/nvidia-nim-set1.md
 // (Set 1, n=3): codger 70 LOC vs baseline 152 = 54% less. Measured on NVIDIA NIM
 // (meta/llama-3.3-70b-instruct), NOT on a real Claude session — applied as a flat
 // estimate to any model until an Anthropic-paid Set 1 run replaces it. Caveat is
