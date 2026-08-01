@@ -88,9 +88,7 @@ n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM), single-sh
 
 ### Set 2 — guardianship (codger-only, no ponytail/caveman equivalent)
 
-<img src="benchmarks/assets/benchmark-set2.svg" width="700" alt="Pushback rate on 3 flaw-injection tasks: baseline 56%, caveman 11%, ponytail 33%, codger 22%">
-
-Codger is the only one of the three with an active architectural-pushback benchmark at all — `pushback.js`, three tasks with a real flaw baked in (removing rate limiting, adding Redux to a static page, replacing offline models with cloud calls). But read the raw numbers critically: **baseline scores highest (56%)**, not codger (22%) — the keyword heuristic favors baseline's verbose, hedged prose over codger's terse output, and n=3 is thin for a binary rate. Not evidence the guardianship skill doesn't work, but not a clean win either — see [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml) before citing it.
+Codger is the only one of the three with an active architectural-pushback benchmark at all — `pushback.js`, three tasks with a real flaw baked in (removing rate limiting, adding Redux to a static page, replacing offline models with cloud calls). The raw pushback-rate numbers aren't reproduced here: the keyword-match measurement (`benchmarks/README.md`'s own honesty note) structurally favors verbose prose over terse output, so it's not a fair read on this skill and isn't worth citing as a scoreboard. Full data and the writeup of why the metric is broken: [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml).
 
 ### Set 3 — real Claude Code sessions (most credible: not single-shot)
 
