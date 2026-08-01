@@ -2,6 +2,12 @@
   <img src="codger_nobg.png" alt="Codger" width="200">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Solen-AI-org/codger?style=flat-square&color=111111&label=stars" alt="Stars">
+  <img src="https://img.shields.io/badge/license-MIT-111111?style=flat-square" alt="MIT license">
+  <img src="https://img.shields.io/badge/benchmarked%20against-caveman%20%7C%20ponytail-111111?style=flat-square" alt="Benchmarked against caveman and ponytail">
+</p>
+
 # Codger
 
 An agent skill that tries to stop your AI from writing 400 lines when 4 would do. It also refuses to run `psql` just to remember a boolean.
@@ -67,6 +73,16 @@ It also checks your **current project root** for rule conventions and appends it
 ## Benchmark & stats
 
 `benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have.
+
+<img src="benchmarks/assets/benchmark-set1.svg" width="700" alt="LOC vs no-skill baseline, Set 1 parity benchmark: baseline 152 LOC (100%), caveman 55 (36%), codger 70 (46%), ponytail 80 (53%)">
+
+| arm | LOC | vs baseline |
+|---|--:|--:|
+| caveman | 55 | 36% |
+| **codger** | **70** | **46%** |
+| ponytail | 80 | 53% |
+
+n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM) — direction matches ponytail's own published Claude numbers, exact ranking is this-model-this-run, not a general claim. Full caveats and the Set 3 agentic table (real Claude Code sessions, LOC/tokens/cost/time/safety): [benchmarks/README.md](benchmarks/README.md).
 
 **No API keys required for the skill itself.** The skill works out of the box — it's just a ruleset + skill files.
 

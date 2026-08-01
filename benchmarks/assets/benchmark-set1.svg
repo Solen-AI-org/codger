@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 240" font-family="ui-monospace, Menlo, Consolas, monospace">
+  <text x="0" y="20" font-size="14" fill="#111111" font-weight="bold">LOC vs no-skill baseline — Set 1 (5 tasks, meta/llama-3.3-70b-instruct, n=3 median)</text>
+
+  <!-- baseline -->
+  <text x="0" y="60" font-size="13" fill="#555555">baseline</text>
+  <rect x="140" y="46" width="600" height="24" fill="#dddddd"/>
+  <text x="750" y="63" font-size="13" fill="#111111">152 LOC (100%)</text>
+
+  <!-- caveman -->
+  <text x="0" y="105" font-size="13" fill="#555555">caveman</text>
+  <rect x="140" y="91" width="217" height="24" fill="#999999"/>
+  <text x="367" y="108" font-size="13" fill="#111111">55 LOC (36%)</text>
+
+  <!-- codger -->
+  <text x="0" y="150" font-size="13" fill="#111111" font-weight="bold">codger</text>
+  <rect x="140" y="136" width="276" height="24" fill="#111111"/>
+  <text x="426" y="153" font-size="13" fill="#111111" font-weight="bold">70 LOC (46%)</text>
+
+  <!-- ponytail -->
+  <text x="0" y="195" font-size="13" fill="#555555">ponytail</text>
+  <rect x="140" y="181" width="316" height="24" fill="#999999"/>
+  <text x="466" y="198" font-size="13" fill="#111111">80 LOC (53%)</text>
+
+  <text x="0" y="230" font-size="11" fill="#888888">Lower is better. Single free-tier model, single run — see benchmarks/results/2026-07-08-nvidia-nim-set1.md for caveats.</text>
+</svg>
