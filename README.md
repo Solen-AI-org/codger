@@ -72,21 +72,7 @@ It also checks your **current project root** for rule conventions and appends it
 
 ## Benchmark & stats
 
-`benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have. Four sets, different strengths — read both charts, not just one.
-
-### Set 3 — real Claude Code sessions (the one that matters most)
-
-<img src="benchmarks/assets/benchmark-set3.svg" width="700" alt="LOC change vs baseline, Set 3 agentic benchmark, real Claude Code sessions: caveman +1%, ponytail -5%, codger -10% (best)">
-
-| arm | LOC | tokens | cost | time | over-eng. (0–3) |
-|---|--:|--:|--:|--:|--:|
-| caveman | +1% | −1% | −1% | −13% | 0.50 |
-| ponytail | −5% | +10% | +14% | +10% | 0.67 |
-| **codger** | **−10%** | +12% | +7% | +19% | **0.58** |
-
-Only set run as real Claude Code sessions (Haiku, n=1, 12 surgical tasks) instead of single-shot API calls — the other skills as installed hook-based plugins, codger via `--append-system-prompt`. Codger writes the least code of the three and is second-lowest on over-engineering, at a real tokens/cost/time premium (a CLAUDE.md-style ruleset re-injects heavier than a single skill file). n=1 — one run, not a settled result.
-
-Codger is also the only one of the three with an active architectural-pushback benchmark (Set 2, `pushback.js`) — no equivalent exists for caveman or ponytail. The raw pushback-rate numbers from that set are noisy (keyword heuristic favors verbose baseline prose) and inconclusive as measured — see [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml) before citing them.
+`benchmarks/` — same harness shape as ponytail's own (promptfoo, vendored MIT metrics), plus a guardianship set ponytail's doesn't have. Four sets run so far (Set 0 tooling + Sets 1–3 below), different strengths — read all three charts, not just one.
 
 ### Set 1 — parity with ponytail's own benchmark (single-shot)
 
@@ -100,7 +86,25 @@ Codger is also the only one of the three with an active architectural-pushback b
 
 n=3, single free model (`meta/llama-3.3-70b-instruct` via NVIDIA NIM), single-shot (no real session, no re-injection cost) — direction matches ponytail's own published Claude numbers, exact ranking is this-model-this-run, not a general claim. Caveman comes out leanest here.
 
-Full methodology, caveats, and Set 2 detail: [benchmarks/README.md](benchmarks/README.md).
+### Set 2 — guardianship (codger-only, no ponytail/caveman equivalent)
+
+<img src="benchmarks/assets/benchmark-set2.svg" width="700" alt="Pushback rate on 3 flaw-injection tasks: baseline 56%, caveman 11%, ponytail 33%, codger 22%">
+
+Codger is the only one of the three with an active architectural-pushback benchmark at all — `pushback.js`, three tasks with a real flaw baked in (removing rate limiting, adding Redux to a static page, replacing offline models with cloud calls). But read the raw numbers critically: **baseline scores highest (56%)**, not codger (22%) — the keyword heuristic favors baseline's verbose, hedged prose over codger's terse output, and n=3 is thin for a binary rate. Not evidence the guardianship skill doesn't work, but not a clean win either — see [benchmarks/README.md](benchmarks/README.md#set-2--guardianship-promptfooconfigpushbackyaml) before citing it.
+
+### Set 3 — real Claude Code sessions (most credible: not single-shot)
+
+<img src="benchmarks/assets/benchmark-set3.svg" width="700" alt="LOC change vs baseline, Set 3 agentic benchmark, real Claude Code sessions: caveman +1%, ponytail -5%, codger -10% (best)">
+
+| arm | LOC | tokens | cost | time | over-eng. (0–3) |
+|---|--:|--:|--:|--:|--:|
+| caveman | +1% | −1% | −1% | −13% | 0.50 |
+| ponytail | −5% | +10% | +14% | +10% | 0.67 |
+| **codger** | **−10%** | +12% | +7% | +19% | **0.58** |
+
+Only set run as real Claude Code sessions (Haiku, n=1, 12 surgical tasks) instead of single-shot API calls — the other skills as installed hook-based plugins, codger via `--append-system-prompt`. Codger writes the least code of the three and is second-lowest on over-engineering, at a real tokens/cost/time premium (a CLAUDE.md-style ruleset re-injects heavier than a single skill file). n=1 — one run, not a settled result.
+
+Full methodology and caveats for all sets: [benchmarks/README.md](benchmarks/README.md).
 
 **No API keys required for the skill itself.** The skill works out of the box — it's just a ruleset + skill files.
 
